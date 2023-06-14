@@ -17,8 +17,7 @@ Atualizado em 13/06/2023
 | 10. Clientes podem ser regulares ou especialistas, e estes últimos podem adicionar comentários à avaliação  | Ramon  ✔️      |
 | 11. Implementação do protótipo de sistema cobrindo os requisitos  | Julia  ✔️      |
 | 12. Garantir a robustez do sistema principal |  Ramon/ Wemerson ✔️      |
-| 12. Garantir a robustez do sistema principal |  Julia/ Pedro ✔️      |
-| 12. Realizar testes das implementações |  Todos ✔️      |
+| 13. Realizar testes das implementações |  Todos ✔️      |
 
 ----
 -Parte 1:
