@@ -1,3 +1,26 @@
+# Backlog do projeto XXX
+Atualizado em 13/06/2023
+
+## Tarefas terminadas
+
+| Tarefa      | Responsável |
+| ----------- | ----------- |
+| 1. Implementação das classes Cliente, Serie e PlataformaStreaming como originalmente planejadas      | Wemerson  ✔️     |
+| 2. Atualização do diagrama original para contemplar requisito de carga de dados   | Mary Anne ✔️       |
+| 3. Implementação dos métodos para carga de dados de séries, clientes e audiência em funcionamento   | Pedro ✔️       |
+| 4. Atualização do diagrama para abrigar o novo tipo de mídia: Filme   | Pedro ✔️       |
+| 5. Implementação da lógica de carga de dados do catálogo de filmes   | Ramon ✔️       |
+| 6. Implementação do cadastro de clientes, filmes e séries   | Julia ✔️       |
+| 7. Salvar dados de clientes, filmes e séries   | Wemerson  ✔️      |
+| 8. Implementação do sistema de avaliação de mídias: uma mídia tem sua avaliação média   | Mary Anne  ✔️      |
+| 9. Um cliente não pode avaliar a mesma mídia duas vezes   | Mary Anne  ✔️      |
+| 10. Clientes podem ser regulares ou especialistas, e estes últimos podem adicionar comentários à avaliação  | Ramon  ✔️      |
+| 11. Implementação do protótipo de sistema cobrindo os requisitos  | Julia  ✔️      |
+| 12. Garantir a robustez do sistema principal |  Ramon/ Wemerson ✔️      |
+| 12. Garantir a robustez do sistema principal |  Julia/ Pedro ✔️      |
+| 12. Realizar testes das implementações |  Todos ✔️      |
+
+----
 -Parte 1:
     Dentre as formas de entretenimento contemporâneas, os serviços de streaming de conteúdo se multiplicaram e
     tomaram conta de boa parte do mercado nos últimos anos. Isto pode ser percebido em números relatados por pesquisas
