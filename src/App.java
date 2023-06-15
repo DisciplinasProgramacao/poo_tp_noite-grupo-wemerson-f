@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -12,7 +13,7 @@ public class App {
     public static Random random = new Random();
     public static HashMap<String, Usuario> clientes = new HashMap<String, Usuario>();
     public static HashMap<Integer, Midia> series = new HashMap<Integer, Midia>();
-    public static ArrayList<Filme> filmes = new ArrayList<Filme>();
+    public static HashMap<Integer, Midia> filmes = new HashMap<Integer, Midia>();
     public static Scanner key = new Scanner(System.in);
     public static int cont = 0;
 
@@ -24,7 +25,6 @@ public class App {
         carregaEspectadores();
         carregaSeries();
         carregarFilmes();
-        filmes.sort((f1, f2) -> f1.getNome().compareTo(f2.getNome()));
         carregarAudiencia();
 
     }
@@ -103,8 +103,8 @@ public class App {
         for(int i=0; i < arq.size(); i++)
         {
             linha = arq.get(i).split(";");
-            Filme filme = new Filme(Integer.parseInt(linha[0]), linha[1], new Data(linha[2]), Integer.parseInt(linha[3]));
-            filmes.add(filme);
+            Filme filme = new Filme(Integer.parseInt(linha[0]), linha[1], new Data(linha[2]));
+            filmes.put(Integer.parseInt(linha[0]), filme);
         }
         clear();
 
@@ -290,9 +290,13 @@ public class App {
                                     break;
                                     case 2: //Filmes
                                         clear();
-                                        int count2 = 0;
-                                        for (Filme filme : filmes) {
-                                            print(++count2 + " - " + filme.getNome());
+                                        series.forEach((id, serie) -> {
+                                            print(id + " - " + serie.getNome());
+                                        });
+                                        print("\n\nDeseja ver detalhes do filme?(S/N)");
+                                        if(key.nextLine().toLowerCase().equals("s")){
+                                            System.out.print("\nInforme o código do filme: ");
+                                            print(filmes.get(Integer.parseInt(key.nextLine())).toString());
                                         }
                                         print("\n\nPressione qualquer tecla para continua...");
                                         key.nextLine();

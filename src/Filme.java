@@ -3,14 +3,20 @@ import java.util.ArrayList;
 public class Filme extends Midia {
     private int duracao; //(min)
 
-    public Filme(int id, String nome, Data dataDeLancamento, int duracao)
-    {
+    public Filme(int id, String nome, Data dataDeLancamento)
+    {   
         this.id = id;
         this.nome = nome;
         this.dataDeLancamento = dataDeLancamento;
-        this.duracao = duracao; 
+        this.init();
     }
 
+    private void init()
+    {
+        this.views = 0;
+        this.genero = generos[App.random.nextInt(9)];
+        this.idioma = idiomas[App.random.nextInt(6)];
+    }
 
     public void atualizaViews()
     {
