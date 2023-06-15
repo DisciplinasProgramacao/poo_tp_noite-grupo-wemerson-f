@@ -1,25 +1,3 @@
-# Backlog do projeto XXX
-Atualizado em 13/06/2023
-
-## Tarefas terminadas
-
-| Tarefa      | Responsável |
-| ----------- | ----------- |
-| 1. Implementação das classes Cliente, Serie e PlataformaStreaming como originalmente planejadas      | Wemerson  ✔️     |
-| 2. Atualização do diagrama original para contemplar requisito de carga de dados   | Mary Anne ✔️       |
-| 3. Implementação dos métodos para carga de dados de séries, clientes e audiência em funcionamento   | Pedro ✔️       |
-| 4. Atualização do diagrama para abrigar o novo tipo de mídia: Filme   | Pedro ✔️       |
-| 5. Implementação da lógica de carga de dados do catálogo de filmes   | Ramon ✔️       |
-| 6. Implementação do cadastro de clientes, filmes e séries   | Julia ✔️       |
-| 7. Salvar dados de clientes, filmes e séries   | Wemerson  ✔️      |
-| 8. Implementação do sistema de avaliação de mídias: uma mídia tem sua avaliação média   | Mary Anne  ✔️      |
-| 9. Um cliente não pode avaliar a mesma mídia duas vezes   | Mary Anne  ✔️      |
-| 10. Clientes podem ser regulares ou especialistas, e estes últimos podem adicionar comentários à avaliação  | Ramon  ✔️      |
-| 11. Implementação do protótipo de sistema cobrindo os requisitos  | Julia  ✔️      |
-| 12. Garantir a robustez do sistema principal |  Ramon/ Wemerson ✔️      |
-| 13. Realizar testes das implementações |  Julia/Pedro ✔️      |
-
-----
 -Parte 1:
     Dentre as formas de entretenimento contemporâneas, os serviços de streaming de conteúdo se multiplicaram e
     tomaram conta de boa parte do mercado nos últimos anos. Isto pode ser percebido em números relatados por pesquisas
@@ -66,6 +44,7 @@ Atualizado em 13/06/2023
     2 Disponível em https://www.forbes.com/sites/marisadellatto/2023/02/16/paramount-gains-subscribers-as-disney-reports-losseswhere-
     all-the-major-streaming-services-stand/?sh=14df9763c4ac
 
+-----------------------------------------
 -Parte 2:
     Após a validação do diagrama inicial e da implementação das classes, é necessário um módulo que leia arquivos com dados em formato texto (csv) e crie os objetos correspondentes para utilização no sistema. Os arquivos são 3, cada um
     sendo formatado linha a linha como indicado:
@@ -98,6 +77,7 @@ Atualizado em 13/06/2023
     o Produção e acompanhamento individual;
     o Cumprimento dos requisitos e prazos do projeto.
 
+------------------------
 Parte 3:
     Com os testes iniciais indicando um bom funcionamento do sistema “Minhas Séries”, é natural que as próximas fases
     do projeto comecem a ser planejas. O passo seguinte é simples, porém muito importante: o serviço de streaming passará
@@ -124,6 +104,18 @@ Parte 3:
     O que deve ser produzido:
     • Modelo/diagrama de classes desenvolvido para resolver o problema. Não é necessário incluir construtores
     nem métodos get/set no modelo.
+
+-------------------------------
+parte 4- O passo seguinte da implementação aborda as regras para avaliação de mídias. Uma mídia assistida por um cliente
+pode ser avaliada por ele com uma nota de 1 a 5. Cada mídia deve ter sua avaliação média calculada e exibida quando
+necessário. Definiu-se que é importante proibir que um cliente avalie a mesma mídia duas ou mais vezes.
+Outra mudança importante é que existem duas categorias de avaliação que podem ser feitas pelos clientes:
+clientes “regulares” apenas dão nota para a mídia; clientes “especialistas” podem dar nota e deixar um comentário
+escrito. Um cliente é considerado especialista se ele avaliou ao menos 5 mídias no mês anterior ao atual.
+As tarefas acima, portanto, devem ser incluídas no backlog do projeto. Se for da preferência do grupo de
+desenvolvimento, elas podem ser divididas em subtarefas.
+Ainda não está no backlog prioritário, mas sabe-se que os próximos passos do sistema incluem cadastrar e salvar
+novos dados, assim como a melhoria do sistema de filtros do requisito original.
     • Código das classes, de acordo com o diagrama, documentado/comentado.
     Observações:
     • Trabalho em grupos de 5 alunos.
@@ -134,3 +126,20 @@ Parte 3:
     o Produção e acompanhamento do grupo;
     o Produção e acompanhamento individual;
     o Cumprimento dos requisitos e prazos do projeto.
+
+------------
+parte 5- Para a última fase da implementação, temos 3 requisitos:
+• Os gêneros de mídias devem ser limitados à esta lista: Ação, Anime, Aventura, Comédia, Documentário,
+Drama, Policial, Romance e Suspense.
+• Algumas mídias serão marcadas como “Lançamento”. Estas mídias só poderão ser assistidas por clientes
+“profissionais” – aqueles que, de alguma maneira, trabalham diretamente com mídias – sejam como
+jornalistas, diretores, atores etc. Estes clientes também podem escrever comentários para as mídias
+assistidas.
+• É necessário incorporar ao aplicativo um módulo de relatórios gerenciais, que são:
+o Qual cliente assistiu mais mídias, e quantas mídias;
+o Qual cliente tem mais avaliações, e quantas avaliações;
+o Qual a porcentagem dos clientes com pelo menos 15 avaliações;
+o Quais são as 10 mídias com a melhor média de avaliações e que tenham sido vistas pelo menos 100
+vezes, apresentadas em ordem decrescente;
+o Quais são as 10 mídias com mais visualizações, em ordem decrescente;
+o Estes mesmos dois últimos relatórios, porém com as mídias separadas por gênero.
