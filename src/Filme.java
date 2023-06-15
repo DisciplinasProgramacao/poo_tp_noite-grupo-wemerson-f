@@ -2,12 +2,10 @@ import java.util.ArrayList;
 
 public class Filme extends Midia {
     private int duracao; //(min)
+    private double media = 0;
 
     public Filme(int id, String nome, Data dataDeLancamento)
     {   
-        this.id = id;
-        this.nome = nome;
-        this.dataDeLancamento = dataDeLancamento;
         this.init();
     }
 
@@ -28,37 +26,56 @@ public class Filme extends Midia {
         this.avaliacoes.add(new Avaliacao(nota));
     }
 
-
-    public int getViews()
-    {
-        return this.views;
-    }
-
+    @Override
     public String toString()
     {
-        return "Filme: " + this.nome + "\nDuração: " + this.duracao + " min \nIdioma: " + this.idioma + "\nLançamento: " + this.dataDeLancamento;
+        int soma = this.avaliacoes.stream().mapToInt(i -> i.getNota()).sum();
+        if(this.avaliacoes.size() != 0) {
+            this.media =  soma/this.avaliacoes.size();
+        }
+        
+        return "Serie: " + this.nome + ","
+            + "\nGênero: " + this.genero + ","
+            + "\nIdioma: " + this.idioma + "," 
+            + "\nVisualizações: " + this.views + ","
+            + "\nLançamento: " + this.dataDeLancamento.dataFormatada() + ","
+            + "\nAvaliação média: " + (this.avaliacoes.size() == 0 ? 0 : this.media);
     }
 
+    @Override
     public String getNome()
     {
         return this.nome;
     }
-    public int getDuracao()
-    {
-        return this.duracao;
-    }
-    public Data getLancamento()
-    {
-        return this.dataDeLancamento;
-    }
-
+    
+    @Override
     public int getId()
     {
         return this.id;
     }
 
+    @Override
+    public int getViews()
+    {
+        return this.views;
+    }
+
+    @Override
+    public Data getLancamento()
+    {
+        return this.dataDeLancamento;
+    }
+
+    @Override
     public ArrayList<Avaliacao> getAvaliacoes()
     {
         return this.avaliacoes;
+    }
+
+    @Override
+    public int getDuracao() 
+    {
+        return this.duracao;
+
     }
 }
