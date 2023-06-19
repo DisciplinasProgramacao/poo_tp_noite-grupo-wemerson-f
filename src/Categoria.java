@@ -11,6 +11,9 @@ public enum Categoria {
         this.comentario = comentario;
     }
 
+    /**
+     * Altera a categoria do cliente
+     */
     public void alterarCategoria()
     {
         if(this.descricao.equals("Regular")) {
@@ -19,7 +22,10 @@ public enum Categoria {
             this.descricao = "Regular";
         }
     }
-
+    /**
+     * Retorna a descrição
+     * @return String
+     */
     public String getDescricao()
     {
         return this.descricao;

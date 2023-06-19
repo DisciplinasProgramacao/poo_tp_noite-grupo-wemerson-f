@@ -1,29 +1,16 @@
 import java.util.ArrayList;
 
 public class Filme extends Midia {
-    private int duracao; //(min)
-    private double media = 0;
-
-    public Filme(int id, String nome, Data dataDeLancamento)
-    {   
-        this.init();
-    }
-
-    private void init()
-    {
-        this.views = 0;
-        this.genero = generos[App.random.nextInt(9)];
-        this.idioma = idiomas[App.random.nextInt(6)];
-    }
-
-    public void atualizaViews()
-    {
-        this.views++;
-    }
     
-    public void avaliar(int nota)
+    private int duracao; //(min)
+    public Filme(int id, String nome, Data dataDeLancamento, int duracao)
     {
-        this.avaliacoes.add(new Avaliacao(nota));
+        this.id = id;
+        this.nome = nome;
+        this.dataDeLancamento = dataDeLancamento;
+        this.duracao = duracao;
+        this.init(); 
+        this.tipo = 2;
     }
 
     @Override
@@ -34,48 +21,17 @@ public class Filme extends Midia {
             this.media =  soma/this.avaliacoes.size();
         }
         
-        return "Serie: " + this.nome + ","
-            + "\nGênero: " + this.genero + ","
-            + "\nIdioma: " + this.idioma + "," 
-            + "\nVisualizações: " + this.views + ","
+        return "Filme: " + this.nome + ","
+            + "\nGênero: " + this.genero.toString() + ","
+            + "\nDuração: " + this.duracao + " min,"
+            + "\nVizualizações: " + this.views + "," 
+            + "\nIdioma: " + this.idioma + ","
             + "\nLançamento: " + this.dataDeLancamento.dataFormatada() + ","
             + "\nAvaliação média: " + (this.avaliacoes.size() == 0 ? 0 : this.media);
     }
 
     @Override
-    public String getNome()
-    {
-        return this.nome;
-    }
-    
-    @Override
-    public int getId()
-    {
-        return this.id;
-    }
-
-    @Override
-    public int getViews()
-    {
-        return this.views;
-    }
-
-    @Override
-    public Data getLancamento()
-    {
-        return this.dataDeLancamento;
-    }
-
-    @Override
-    public ArrayList<Avaliacao> getAvaliacoes()
-    {
-        return this.avaliacoes;
-    }
-
-    @Override
-    public int getDuracao() 
-    {
-        return this.duracao;
-
+    public int getTipo() {
+        return this.tipo;
     }
 }

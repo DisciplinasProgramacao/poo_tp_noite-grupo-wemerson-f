@@ -34,9 +34,15 @@ public class Arquivo {
         }
     }
 
+  /**
+   * Retorna o conteudo do documento
+   * @return ArrayList<String>
+   */
   public ArrayList<String> getDoc()
   {
     return this.doc;
   }
     
 }
+
+
