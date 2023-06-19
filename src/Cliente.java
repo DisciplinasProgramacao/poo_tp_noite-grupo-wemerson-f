@@ -1,11 +1,4 @@
-import java.util.ArrayList;
-
-public class Cliente {
-    protected String nome;
-    protected String login;
-    protected String password;
-    protected ArrayList<Serie> paraAssistir = new ArrayList<Serie>();
-    protected ArrayList<Serie> assistidas = new ArrayList<Serie>();
+public class Cliente extends Usuario {
 
     /**
      * Construtor da classe Cliente
@@ -16,47 +9,37 @@ public class Cliente {
     public Cliente(String nome, String login, String password)
     {
         this.nome = nome;
-        this.login = login;
+        this.login = login.toLowerCase();
         this.password = password;
+        this.categoria = Categoria.REGULAR;
+    } 
+
+    /**
+     * Altera a categoria do usuário para ESPECIALISTA
+     */
+    private void alterarCategoria()
+    {
+        this.categoria = Categoria.ESPECIALISTA;
     }
 
-
-
+    @Override
     /**
      * Adiciona ao ArrayList de series assistidas
      * @param serie
      */
-    public void addAssistidas(Serie serie)
+    public void addAssistidas(int id)
     {
-        assistidas.add(serie);
+        assistidas.add(App.midias.get(id));
+        App.midias.get(id).atualizaViews();
+        if(verificaAvaliacoes()) {
+            this.alterarCategoria();
+        }
     }
 
-    /**
-     * Adiciona ao ArrayList de series para assistir
-     * @param serie
-     */
-    public void addParaAssistir(Serie serie)
-    {
-        paraAssistir.add(serie);
+    @Override
+    public String toString() {
+        return "\nNome: " + this.nome + ",\n" 
+        + "Cliente categoria: " + this.categoria.descricao + ",\n";
     }
 
-    /**
-     * Verifica se a serie informada no parâmetro está no ArrayList de series assistidas
-     * @param nome
-     * @return bool
-     */
-    public boolean verificaSeJaAssistiu(String nome)
-    {
-        return assistidas.contains(nome) ? true : false;
-    }
-
-    public String getLogin()
-    {
-        return this.login;
-    }
-    
-    public String getPassword()
-    {
-        return this.password;
-    }
 }

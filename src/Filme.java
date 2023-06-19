@@ -1,14 +1,17 @@
-public class Serie extends Midia {
+import java.util.ArrayList;
 
-    public Serie(int id, String nome, Data dataDeLancamento)
-    {   
+public class Filme extends Midia {
+    
+    private int duracao; //(min)
+    public Filme(int id, String nome, Data dataDeLancamento, int duracao)
+    {
         this.id = id;
         this.nome = nome;
         this.dataDeLancamento = dataDeLancamento;
-        this.init();
-        this.tipo = 1;
+        this.duracao = duracao;
+        this.init(); 
+        this.tipo = 2;
     }
-
 
     @Override
     public String toString()
@@ -18,13 +21,17 @@ public class Serie extends Midia {
             this.media =  soma/this.avaliacoes.size();
         }
         
-        return "Serie: " + this.nome + ","
+        return "Filme: " + this.nome + ","
             + "\nGênero: " + this.genero.toString() + ","
-            + "\nIdioma: " + this.idioma + "," 
-            //+ "\nDuração: " + this.duracao + "episódios,"   //<- Não especificado onde virá essa informação
-            + "\nVisualizações: " + this.views + ","
+            + "\nDuração: " + this.duracao + " min,"
+            + "\nVizualizações: " + this.views + "," 
+            + "\nIdioma: " + this.idioma + ","
             + "\nLançamento: " + this.dataDeLancamento.dataFormatada() + ","
             + "\nAvaliação média: " + (this.avaliacoes.size() == 0 ? 0 : this.media);
     }
 
+    @Override
+    public int getTipo() {
+        return this.tipo;
+    }
 }
